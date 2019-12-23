@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Ruslan+Display&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    text-align: center;
+    background-color: #ff00ff;
+    transition: background-color 2s linear;
+}
+
+.App-logo {
+    height: 4vmin;
+}
+
+.App-header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(20px + 2vmin);
+    font-family: 'Ruslan Display', cursive;
+    color: #aaffaa;
+}
+
+.App-link {
+    color: #09d3ac;
+}
