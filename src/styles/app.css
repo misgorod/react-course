@@ -5,12 +5,25 @@
     justify-content: space-between;
 }
 
-.movie-container {
-    height: 100px;
+.suggestion {
+    flex-grow: 1;
+    width: 500px;
 }
 
-.background-image {
-    height: 100%;
+.movie-container {
+    flex-grow: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.movie-info {
+    flex-grow: 1;
+}
+
+.movie-image {
+    flex-grow: 3;
+    min-height: 500px;
+    min-width: 300px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -19,4 +32,5 @@
 
 .suggestion:hover {
     background: red;
+    cursor: pointer;
 }

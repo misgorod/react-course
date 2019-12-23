@@ -25,10 +25,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.movie);
     return (
       <div className='container'>
-        <Autosuggest 
+        <Autosuggest className='suggestion'
           suggestions={this.state.suggestions} 
           inputProps={{...this.state, onChange: this.onChange}} 
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested} 
@@ -39,19 +38,24 @@ class App extends Component {
         <div className='movie-container'>
           <div className='movie-info'>
             <div>{this.state.movie.title}</div>
+            <div>{this.state.movie.vote_average}</div>
+            <div>{this.state.movie.overview}</div>
           </div>
-          <div className='background-image' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.movie.poster}?api_key=33507de7c1b19be686f91394950c9a61)`}}></div>
+          <div className='movie-image' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.movie.poster}?api_key=33507de7c1b19be686f91394950c9a61)`}}></div>
         </div>
       </div>
     )
   }
 
   updateMovieState(movie) {
+    console.log(movie);
     this.setState({
       movie: {
         id: movie.id,
+        title: movie.title,
         original_title: movie.original_title,
         tagline: movie.tagline,
+        vote_average: movie.vote_average,
         overview: movie.overview,
         homepage: movie.homepage,
         poster: movie.poster_path,
