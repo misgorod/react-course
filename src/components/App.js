@@ -37,9 +37,9 @@ class App extends Component {
         />
         <div className='movie-container'>
           <div className='movie-info'>
-            <div>{this.state.movie.title}</div>
-            <div>{this.state.movie.vote_average}</div>
-            <div>{this.state.movie.overview}</div>
+            <div id='movie-title'>{this.state.movie.title}</div>
+            <div id='movie-rating'>{this.state.movie.vote_average}</div>
+            <div id='movie-overview'>{this.state.movie.overview}</div>
           </div>
           <div className='movie-image' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.movie.poster}?api_key=33507de7c1b19be686f91394950c9a61)`}}></div>
         </div>

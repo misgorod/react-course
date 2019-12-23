@@ -12,7 +12,8 @@ module.exports = {
         contentBase: '/app/dist',
         hot: true,
         compress: true,
-        port: 9000
+        port: 9000,
+        disableHostCheck: true
     },
     module: {
         rules: [{
