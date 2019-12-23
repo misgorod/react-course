@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './../styles/app.css';
 import Autosuggest from 'react-autosuggest';
 
 class App extends Component {
@@ -8,9 +9,10 @@ class App extends Component {
     this.state = {
       movie: {
         id: 157336, // Interstellar
+        title: 'Interstellar',
+        genre: 'Drama',
         poster: 'xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg'
       },
-      lastUpdate: new Date(),
       value: "",
       suggestions: [],
       placeholder: "Enter movie name"
@@ -23,21 +25,28 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.movie);
     return (
-      <div style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.movie.poster}?api_key=33507de7c1b19be686f91394950c9a61)`}}>
+      <div className='container'>
         <Autosuggest 
           suggestions={this.state.suggestions} 
           inputProps={{...this.state, onChange: this.onChange}} 
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested} 
           alwaysRenderSuggestions={true} 
           getSuggestionValue={this.getSuggestionValue} 
-          renderSuggestion={this.renderSuggestion}/>
+          renderSuggestion={this.renderSuggestion}
+        />
+        <div className='movie-container'>
+          <div className='movie-info'>
+            <div>{this.state.movie.title}</div>
+          </div>
+          <div className='background-image' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.state.movie.poster}?api_key=33507de7c1b19be686f91394950c9a61)`}}></div>
+        </div>
       </div>
     )
   }
 
   updateMovieState(movie) {
-    console.log(movie);
     this.setState({
       movie: {
         id: movie.id,
@@ -81,7 +90,7 @@ class App extends Component {
 
   renderSuggestion(suggestion) {
     return (
-      <span>{suggestion.title}</span>
+      <div className='suggestion'>{suggestion.title}</div>
     );
   }
 
